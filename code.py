@@ -148,7 +148,6 @@ ff=0
 
 def midiBankSelect(control, map_to_change, index):
     ledOn()
-    # Send MSB, LSB followed by a ProgramChange to Voice 0 over USB MIDI
     print(control)
     if control == MIDI_CC_BANKSEL_MSB:
         usb_midi.send(ControlChange(0, 127))
@@ -174,7 +173,6 @@ def midiBankSelect(control, map_to_change, index):
 
 def midiBankSelectCustomValue(control, map_to_change, index, value):
     ledOn()
-    # Send MSB, LSB followed by a ProgramChange to Voice 0 over USB MIDI
     if map_to_change[index]:
         usb_midi.send(ControlChange(control, value)) #ON
         map_to_change[index] = False
